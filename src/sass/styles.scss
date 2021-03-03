@@ -16,6 +16,7 @@
 @import "root";
 @import "reboot";
 @import "type";
+@import "images";
 @import "containers";
 @import "grid";
 @import "tables";
@@ -27,10 +28,21 @@
 @import "nav";
 @import "navbar";
 @import "card";
+@import "accordion";
+@import "breadcrumb";
+@import "pagination";
+@import "badge";
+@import "alert";
+@import "progress";
 @import "list-group";
 @import "close";
+@import "toasts";
 @import "modal";
+@import "tooltip";
 @import "popover";
+@import "carousel";
+@import "spinners";
+@import "offcanvas";
 
 // Helpers
 @import "helpers";
