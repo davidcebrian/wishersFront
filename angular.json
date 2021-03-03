@@ -28,7 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/sass/styles.scss"
             ],
             "scripts": []
           },
@@ -92,7 +92,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/sass/styles.scss"
             ],
             "scripts": []
           }
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "wishersFront"
+    }
+  },
+  "defaultProject": "wishersFront",
+  "cli": {
+    "analytics": false
+  }
 }
