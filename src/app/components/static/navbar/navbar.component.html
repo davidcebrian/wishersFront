@@ -7,20 +7,20 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mx-2">
       <li class="nav-item active">
-        <a class="nav-link" href="#">My List</a>
+        <a class="nav-link" href="/mylist">My List</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Completed</a>
+        <a class="nav-link" href="/completed">Completed</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Explore</a>
+        <a class="nav-link" href="/explore">Explore</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="#">BESTS</a>
+        <a class="nav-link active" href="/best">BESTS</a>
       </li>
     </ul>
-    <form class="form my-2 my-lg-0 d-flex mx-5">
-      <input class="form-control mx-1 align-self-center" type="search" placeholder="Search" aria-label="Search">
+    <form class="form my-2 my-lg-0 d-flex mx-5" [formGroup]="searchForm">
+      <input class="form-control mx-1 align-self-center" formControlName="username" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-primary my-2 my-sm-0 mx-1" type="submit">
         <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-search" viewBox="0 0 17 17">
           <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>

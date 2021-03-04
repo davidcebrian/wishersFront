@@ -50,3 +50,16 @@
 // Utilities
 @import "utilities/api";
 // scss-docs-end import-stack
+
+.divimgbg{
+    background-image: url(../assets/images/fondo-home.jpeg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    margin: 0;
+    height:  35.2rem;
+}
+
+.lessopa {
+    background-color:rgba(255, 255, 255, 0.5);
+}

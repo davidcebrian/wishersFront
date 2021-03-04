@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
@@ -7,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+    searchForm = new FormGroup({
+      username: new FormControl('',[]),
+      })
+      
   constructor() { }
 
   ngOnInit(): void {
