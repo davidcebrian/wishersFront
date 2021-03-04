@@ -12,6 +12,8 @@ import { HttpInterceptorService } from './services/http-interceptor.service';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
+import { MylistComponent } from './components/mylist/mylist.component';
+import { NotLoggedComponent } from './components/not-logged/not-logged.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { LoginComponent } from './components/login/login.component';
     HomeComponent,
     NavbarComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    MylistComponent,
+    NotLoggedComponent
   ],
   imports: [
     HttpClientModule,
