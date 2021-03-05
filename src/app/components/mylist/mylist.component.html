@@ -1,1 +1,58 @@
+<h2 class="m-4"> MY LIST</h2>
+<div class="container d-flex flex-wrap" >
+    <div *ngFor="let wish of this.wishes" [class]="wish.completed ? 'card m-4 col-md-3 col-4 shadow-lg d-none':'card m-4 col-md-3 col-4 shadow-lg'">
+            <img src="../../../assets/images/imgncardwish.jpeg" class="card-img-top" alt="imagen-deseo-descrito">
+            <div class="card-body ">
+                <h5 class="card-title">{{wish.title}}</h5>
+                <p class="card-text">{{wish.description}}</p>
+                <p class="card-text">Points --> {{wish.value}}</p>
+                <a class="btn btn-success mx-2" (click)="this.complete(wish.title)">Complete</a>
+                <a class="btn btn-danger" (click)="this.delete(wish.title)">Delete</a>
+            </div>
+    </div>
 
+    <div class="card m-4 col-md-3 col-4 shadow-lg" data-toggle="modal" data-target="#miModal">
+        <img src="../../../assets/images/addimg.png" class="card-img" alt="imagen-deseo-descrito">
+        <div class="card-body shadow-lg">
+            <p>Añade tu deseo</p>
+        </div>
+    </div>
+
+</div>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">New Wish</h5>
+          <button type="btn btn-dark" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <!-- form para anadir wish -->
+            <form [formGroup]="wishForm">
+                <div class="form-group my-2">
+                    <input formControlName="title" name="title" type="text" [class]="wishForm.controls.title.invalid ? 'form-control is-invalid' : 'form-control is-valid'" placeholder="Título.." value="" id="title"/>
+                    <p *ngIf="wishForm.controls.title.invalid" class="text-danger small">Title needed</p>
+                </div>
+                <div class="form-group my-2">
+                    <input  formControlName="description" name="description" type="text" [class]="wishForm.controls.description.invalid ? 'form-control is-invalid' : 'form-control is-valid'" placeholder="Surname.." value="" id="description"/>
+                    <p *ngIf="wishForm.controls.description.invalid" class="text-danger small">Description needed</p>
+                </div>
+                <div class="form-group my-2">
+                    <input  formControlName="value" name="value" type="number" [class]="wishForm.controls.value.value == '' ? 'form-control is-invalid' : 'form-control is-valid'" placeholder="Edad.." value="" id="value"/>
+                    <p *ngIf="wishForm.controls.value.value == '' " class="text-danger small">Value needed</p>
+                </div>
+                </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="addWish()" data-dismiss="modal">Añadir</button>
+        </div>
+      </div>
+    </div>
+  </div>

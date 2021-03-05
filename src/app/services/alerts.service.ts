@@ -28,6 +28,30 @@ export class AlertsService {
     })
   }
 
+  added(){
+    Swal.fire({
+      title: 'Wish Añadido!',
+      text: '¡A completarlo!',
+      icon: "success"
+    })
+  }
+
+  completed(){
+    Swal.fire({
+      title: 'Wish Completado!',
+      text: '¡Disfrutalo!',
+      icon: "success"
+    })
+  }
+
+  deleted(){
+    Swal.fire({
+      title: 'Wish Borrado!',
+      text: '¡Adiós a este deseo!',
+      icon: "success"
+    })
+  }
+
   loginIncorrecto(){
     Swal.fire({
       title: 'ERROR!',
