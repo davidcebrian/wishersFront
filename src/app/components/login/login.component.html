@@ -24,27 +24,27 @@
             <h3>Register if you havent account yet!</h3>
             <form [formGroup]="registerForm">
                 <div class="form-group my-2">
-                    <input formControlName="name" name="name" type="text" [class]="registerForm.controls.name.invalid ? 'form-control is-invalid' : 'form-control is-valid'" placeholder="Name.." value="" id="name"/>
+                    <input formControlName="name" name="name" type="text" [class]="registerForm.controls.name.invalid ? 'form-control is-warning' : 'form-control is-valid'" placeholder="Name.." value="" id="name"/>
                     <p *ngIf="registerForm.controls.name.invalid" class="text-warning small">Name with 3 characters min needed</p>
                 </div>
                 <div class="form-group my-2">
-                    <input  formControlName="surname" name="surname" type="text" [class]="registerForm.controls.surname.invalid ? 'form-control is-invalid' : 'form-control is-valid'" placeholder="Surname.." value="" id="surname"/>
+                    <input  formControlName="surname" name="surname" type="text" [class]="registerForm.controls.surname.invalid ? 'form-control is-warning' : 'form-control is-valid'" placeholder="Surname.." value="" id="surname"/>
                     <p *ngIf="registerForm.controls.surname.invalid" class="text-warning small">Surname with 3 characters min needed</p>
                 </div>
                 <div class="form-group my-2">
-                    <input  formControlName="edad" name="edad" type="number" [class]="registerForm.controls.edad.value == '' ? 'form-control is-invalid' : 'form-control is-valid'" placeholder="Edad.." value="" id="edad"/>
+                    <input  formControlName="edad" name="edad" type="number" [class]="registerForm.controls.edad.value == '' ? 'form-control is-warning' : 'form-control is-valid'" placeholder="Edad.." value="" id="edad"/>
                     <p *ngIf="registerForm.controls.edad.value == '' " class="text-warning small">Edad needed</p>
                 </div>
                 <div class="form-group my-2">
-                    <input formControlName="username" name="username" type="text" [class]="registerForm.controls.username.invalid ? 'form-control is-invalid' : 'form-control is-valid'" placeholder="Username.." value="" id="username"/>
+                    <input formControlName="username" name="username" type="text" [class]="registerForm.controls.username.invalid ? 'form-control is-warning' : 'form-control is-valid'" placeholder="Username.." value="" id="username"/>
                     <p *ngIf="registerForm.controls.username.invalid" class="text-warning small">Username with 3 characters min needed</p>
                 </div>
                 <div class="form-group my-2">
-                    <input  formControlName="email" name="email" type="text" [class]="registerForm.controls.email.invalid ? 'form-control is-invalid' : 'form-control is-valid'" placeholder="Email.." value="" id="email"/>
+                    <input  formControlName="email" name="email" type="text" [class]="registerForm.controls.email.invalid ? 'form-control is-warning' : 'form-control is-valid'" placeholder="Email.." value="" id="email"/>
                     <p *ngIf="registerForm.controls.email.invalid" class="text-warning small">Email needed</p>
                 </div>
                 <div class="form-group my-2">
-                    <input formControlName="password" name="password" type="password" [class]="registerForm.controls.password.invalid ? 'form-control is-invalid' : 'form-control is-valid'" placeholder="Password.." value="" id="password"/>
+                    <input formControlName="password" name="password" type="password" [class]="registerForm.controls.password.invalid ? 'form-control is-warning' : 'form-control is-valid'" placeholder="Password.." value="" id="password"/>
                     <p *ngIf="registerForm.controls.password.invalid" class="text-warning small">Password with 3 characters min needed</p>
                 </div>
                 <div class="form-group my-2">

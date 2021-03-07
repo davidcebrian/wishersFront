@@ -1,0 +1,15 @@
+<h2 class="m-4">COMPLETED WISHES</h2>
+<hr>
+<div class="container d-flex flex-wrap" >
+    <div *ngFor="let wish of this.wishes" [class]="!wish.completed ? 'card m-4 col-md-3 col-4 shadow-lg d-none':'card m-4 col-md-3 col-4 shadow-lg'">
+            <img src="../../../assets/images/imgncardwish.jpeg" class="card-img-top" alt="imagen-deseo-descrito">
+            <div class="card-body ">
+                <h5 class="card-title">{{wish.title}}</h5>
+                <p class="card-text">{{wish.description}}</p>
+                <p class="card-text">Points --> {{wish.value}}</p>
+                <a class="btn btn-success mx-2" (click)="this.complete(wish.title)">Uncomplete</a>
+                <a class="btn btn-danger" (click)="this.delete(wish.title)">Delete</a>
+            </div>
+    </div>
+</div>
+

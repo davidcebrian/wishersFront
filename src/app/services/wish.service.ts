@@ -32,6 +32,10 @@ export class WishService {
     )
   }
 
+  getWishesFromCustomer(username: string){
+    return this.http.get<Wish[]>(this.customerEndPoint + '/' + username + '/wish');
+  }
+
   addWish(username: string, wish: Wish): any {
     return this.http.post(this.customerEndPoint + '/' + username + '/wish', wish);
   }

@@ -34,9 +34,7 @@ export class LoginComponent implements OnInit {
     
 
     this.userService.login(userLogin).subscribe( r => {
-
       this.alerts.loading();
-
       if( r != undefined && r != null) {
         this.jwtService.guardarJwt(r.headers.get('Authorization').split(' ')[1].trim())
         this.router.navigate(['/mylist'])

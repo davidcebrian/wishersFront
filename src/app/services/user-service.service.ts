@@ -1,5 +1,5 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Customer, User } from '../interfaces/interfaces';
 import { tap } from 'rxjs/operators';
@@ -11,48 +11,48 @@ export class UserServiceService {
 
   private endPoint = '/user';
   private customerEndPoint = '/customer'
+  public loginStatusSubject = new Subject<boolean>();
+  public loginStatus$ = this.loginStatusSubject.asObservable();
 
-  customerAutenticado: Customer;
+  customers: Customer[];
 
   @Output()
-  cambiosEnCustomer = new EventEmitter<Customer>();  
+  cambiosEnCustomers = new EventEmitter<Customer[]>();  
 
   constructor( private http: HttpClient ) { }
 
-  getCustomerAutenticado(): Observable<Customer> {
-    return this.http.get<Customer>(this.customerEndPoint + '/' + localStorage.getItem('username')).pipe(
-      tap(customerAutenticado => {
-        if ((this.customerAutenticado == null && customerAutenticado != null) ||
-        (this.customerAutenticado != null && customerAutenticado == null) ||
-        (this.customerAutenticado != null && customerAutenticado != null && this.customerAutenticado.username != customerAutenticado.username)) {
-        this.customerAutenticado = customerAutenticado;
-        this.emitirCambiosEnCustomer();
-      }
+
+  getAllCustomer(): Observable<Customer[]> {
+    return this.http.get<Customer[]>(this.customerEndPoint).pipe(
+      tap( r => {
+        this.customers = r;
+        this.emitirCambiosEnCustomers()
       })
-    )
+    );
   }
 
-  emitirCambiosEnCustomer() {
-    this.cambiosEnCustomer.emit(this.customerAutenticado);
+  emitirCambiosEnCustomers() {
+    this.cambiosEnCustomers.emit(this.customers);
   }
 
   getCustomer(username: string): Observable<Customer> {
     return this.http.get<Customer>(this.customerEndPoint + '/' + username);
   }
 
+
   compruebaJwt(): boolean {
-    if(localStorage.getItem("jwt") != null) return true;
+    if(localStorage.getItem("jwt") != null ||localStorage.getItem("jwt") != undefined) return true;
     else return false;
   }
 
   login(user: User) {
+    this.loginStatusSubject.next(true);
     return this.http.post(this.endPoint + '/login',user, { observe: 'response' })
   }
 
   logout(){
-    this.customerAutenticado = null;
     localStorage.clear();
-    this.emitirCambiosEnCustomer()
+    this.loginStatusSubject.next(false);
   }
 
   register(user: User) {

@@ -1,4 +1,5 @@
 <h2 class="m-4"> MY LIST</h2>
+<hr>
 <div class="container d-flex flex-wrap" >
     <div *ngFor="let wish of this.wishes" [class]="wish.completed ? 'card m-4 col-md-3 col-4 shadow-lg d-none':'card m-4 col-md-3 col-4 shadow-lg'">
             <img src="../../../assets/images/imgncardwish.jpeg" class="card-img-top" alt="imagen-deseo-descrito">
@@ -40,11 +41,11 @@
                     <p *ngIf="wishForm.controls.title.invalid" class="text-danger small">Title needed</p>
                 </div>
                 <div class="form-group my-2">
-                    <input  formControlName="description" name="description" type="text" [class]="wishForm.controls.description.invalid ? 'form-control is-invalid' : 'form-control is-valid'" placeholder="Surname.." value="" id="description"/>
+                    <input  formControlName="description" name="description" type="text" [class]="wishForm.controls.description.invalid ? 'form-control is-invalid' : 'form-control is-valid'" placeholder="Description.." value="" id="description"/>
                     <p *ngIf="wishForm.controls.description.invalid" class="text-danger small">Description needed</p>
                 </div>
                 <div class="form-group my-2">
-                    <input  formControlName="value" name="value" type="number" [class]="wishForm.controls.value.value == '' ? 'form-control is-invalid' : 'form-control is-valid'" placeholder="Edad.." value="" id="value"/>
+                    <input  formControlName="value" name="value" type="number" [class]="wishForm.controls.value.value == '' ? 'form-control is-invalid' : 'form-control is-valid'" placeholder="Value.." value="" id="value"/>
                     <p *ngIf="wishForm.controls.value.value == '' " class="text-danger small">Value needed</p>
                 </div>
                 </form>

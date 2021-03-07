@@ -39,8 +39,16 @@ export class AlertsService {
   completed(){
     Swal.fire({
       title: 'Wish Completado!',
-      text: '¡Disfrutalo!',
-      icon: "success"
+      text: '¡Bien hecho!',
+      icon: "info"
+    })
+  }
+
+  uncompleted(){
+    Swal.fire({
+      title: 'Wish enviado a tu lista!',
+      text: '¡A por ello!',
+      icon: "info"
     })
   }
 
@@ -48,7 +56,7 @@ export class AlertsService {
     Swal.fire({
       title: 'Wish Borrado!',
       text: '¡Adiós a este deseo!',
-      icon: "success"
+      icon: "info"
     })
   }
 

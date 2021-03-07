@@ -14,6 +14,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { MylistComponent } from './components/mylist/mylist.component';
 import { NotLoggedComponent } from './components/not-logged/not-logged.component';
+import { CompletedComponent } from './components/completed/completed.component';
+import { ExploreComponent } from './components/explore/explore.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { NotLoggedComponent } from './components/not-logged/not-logged.component
     FooterComponent,
     LoginComponent,
     MylistComponent,
-    NotLoggedComponent
+    NotLoggedComponent,
+    CompletedComponent,
+    ExploreComponent
   ],
   imports: [
     HttpClientModule,
