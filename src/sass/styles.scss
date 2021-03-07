@@ -218,6 +218,9 @@ footer {
     @media (min-width: 768px) {
       padding-top: 0rem;
     }
+    @media (min-width: 1200px) {
+      padding-top: 0.5rem;
+    }
   }
 
 .footer-column {
@@ -244,6 +247,10 @@ footer {
     display: inline-block;
     @media (min-width: 768px) {
       text-align: left;
+    }
+    @media (min-width: 1200px) {
+      text-align: left;
+      padding: 0rem;
     }
     //border: yellow solid 1px;
   }
