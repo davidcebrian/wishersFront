@@ -1,9 +1,3 @@
-/*!
- * Bootstrap v5.0.0-beta2 (https://getbootstrap.com/)
- * Copyright 2011-2021 The Bootstrap Authors
- * Copyright 2011-2021 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
 
 // scss-docs-start import-stack
 // Configuration
@@ -28,21 +22,11 @@
 @import "nav";
 @import "navbar";
 @import "card";
-@import "accordion";
-@import "breadcrumb";
 @import "pagination";
-@import "badge";
-@import "alert";
-@import "progress";
 @import "list-group";
 @import "close";
-@import "toasts";
 @import "modal";
-@import "tooltip";
-@import "popover";
-@import "carousel";
-@import "spinners";
-@import "offcanvas";
+
 
 // Helpers
 @import "helpers";
@@ -76,30 +60,83 @@
 
 $login-color: #fff;
 $register-color: #212529;
+$box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+$amarillo-inputs: #fec503;
+$shadow-inputs: 0 0 0 .2rem rgba(231,76,60,.25);
+
+@mixin login-form {
+  padding: 5%;
+  box-shadow: $box-shadow;
+  h3{
+    text-align: center;
+  }
+  .btnSubmit{
+    font-weight: 600;
+  }
+  .ForgetPwd{
+    font-weight: 600;
+    text-decoration: none;
+  }
+}
+
+@mixin social-buttons {
+  margin-bottom: 0;
+  li {
+    a{
+      font-size: 20px;
+      line-height: 40px;
+      display: block;
+      width: 40px;
+      height: 40px;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      transition: all 0.3s;
+      color: $white-color;
+      border-radius: 100%;
+      outline: 0;
+      background-color: $footer-background-grey;
+      &:active, &:focus, &:hover{
+        background-color: $primary-orange;
+      }
+    }
+  }
+}
 
 .login-container{
     margin-top: 5%;
     margin-bottom: 5%;
+    form{
+      padding: 10%;
+    }
 }
 .login-form-1{
-    padding: 5%;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    @include login-form;
+    h3{
+      color: #333;
+    }
+    .btnSubmit{
+      color: $login-color;
+      background-color: $register-color;
+    }
+    .ForgetPwd{
+      color: $register-color;
+    }
 }
-.login-form-1 h3{
-    text-align: center;
-    color: #333;
-}
+
 .login-form-2{
-    padding: 5%;
+    @include login-form;
     background: $register-color;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
-}
-.login-form-2 h3{
-    text-align: center;
-    color: $login-color;
-}
-.login-container form{
-    padding: 10%;
+    h3{
+      color: $login-color;
+    }
+    .btnSubmit{
+      
+      color: $register-color;
+      background-color: $login-color;
+    }
+    .ForgetPwd{
+      color: $login-color;
+    }
 }
 .btnSubmit
 {
@@ -109,80 +146,9 @@ $register-color: #212529;
     border: none;
     cursor: pointer;
 }
-.login-form-1 .btnSubmit{
-    font-weight: 600;
-    color: $login-color;
-    background-color: $register-color;
-}
-.login-form-2 .btnSubmit{
-    font-weight: 600;
-    color: $register-color;
-    background-color: $login-color;
-}
-.login-form-2 .ForgetPwd{
-    color: $login-color;
-    font-weight: 600;
-    text-decoration: none;
-}
-.login-form-1 .ForgetPwd{
-    color: $register-color;
-    font-weight: 600;
-    text-decoration: none;
-}
-.login-container{
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-.login-form-1{
-    padding: 5%;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
-}
-.login-form-1 h3{
-    text-align: center;
-    color: #333;
-}
-.login-form-2{
-    padding: 5%;
-    background: $register-color;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
-}
-.login-form-2 h3{
-    text-align: center;
-    color: $login-color;
-}
-.login-container form{
-    padding: 10%;
-}
-.btnSubmit
-{
-    width: 50%;
-    border-radius: 1rem;
-    padding: 1.5%;
-    border: none;
-    cursor: pointer;
-}
-.login-form-1 .btnSubmit{
-    font-weight: 600;
-    color: $login-color;
-    background-color: $register-color;
-}
-.login-form-2 .btnSubmit{
-    font-weight: 600;
-    color: $register-color;
-    background-color: $login-color;
-}
-.login-form-2 .ForgetPwd{
-    color: $login-color;
-    font-weight: 600;
-    text-decoration: none;
-}
-.login-form-1 .ForgetPwd{
-    color: $register-color;
-    font-weight: 600;
-    text-decoration: none;
-}
+
 .form-control.is-warning,.was-validated .form-control:invalid{
-  border-color:#e7c83c;
+  border-color: $amarillo-inputs;
   padding-right:calc(1.5em + .75rem);
   background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23e74c3c' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23e74c3c' stroke='none'/%3e%3c/svg%3e");
   background-repeat:no-repeat;
@@ -190,29 +156,30 @@ $register-color: #212529;
   background-size:calc(.75em + .375rem) calc(.75em + .375rem)
 }
 .form-control.is-warning:focus,.was-validated .form-control:invalid:focus{
-  border-color:#fec503;
-  box-shadow:0 0 0 .2rem rgba(231,76,60,.25)
+  border-color:$amarillo-inputs;
+  box-shadow:$shadow-inputs;
 }
 .was-validated textarea.form-control:invalid,textarea.form-control.is-warning{
   padding-right:calc(1.5em + .75rem);
   background-position:top calc(.375em + .1875rem) right calc(.375em + .1875rem)
 }
 .custom-select.is-warning,.was-validated .custom-select:invalid{
-  border-color:#fec503;
+  border-color:$amarillo-inputs;
   padding-right:calc(.75em + 2.3125rem);
   background:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23303030' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right .75rem center/8px 10px no-repeat,#fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23e74c3c' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23e74c3c' stroke='none'/%3e%3c/svg%3e") center right 1.75rem/calc(.75em + .375rem) calc(.75em + .375rem) no-repeat
 }
 .custom-select.is-warning:focus,.was-validated .custom-select:invalid:focus{
-  border-color:#fec503;
-  box-shadow:0 0 0 .2rem rgba(231,76,60,.25)}
+  border-color:$amarillo-inputs;
+  box-shadow:$shadow-inputs;}
 
 //FOOTER SCSS
 
 $link-light-grey: #6c757d;
-$primary-orange: #fec503; //before: fed136
+$primary-orange: $amarillo-inputs; //before: fed136
 $footer-background-light-grey: #212529;
 $footer-background-grey: #1a1d20;
 $social-buttons-circle-dark-grey: #1a1d20;
+$white-color: #fff;
 
 .col-md-4:nth-child(even) {
   // background: blue;
@@ -223,10 +190,10 @@ $social-buttons-circle-dark-grey: #1a1d20;
 
 a {
   color: $link-light-grey;
-}
-a:hover {
-  color: $primary-orange;
-  text-decoration: none;
+  &:hover {
+    color: $primary-orange;
+    text-decoration: none;
+  }
 }
 
 ::selection {
@@ -236,10 +203,14 @@ a:hover {
 
 footer {
   padding: 2rem 0;
-  background-color: #212529;
-  // .container .row:not(:last-child) {
-  //   padding-bottom: 2rem;
-  // }
+  background-color: $footer-background-light-grey;
+  .quick-links {
+    font-size: 90%;
+    line-height: 40px;
+    margin-bottom: 0;
+    text-transform: none;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
 }
 
 .footer-column:not(:first-child) {
@@ -262,7 +233,7 @@ footer {
     span.footer-title {
       font-size: 14px;
       font-weight: 700;
-      color: #fff;
+      color: $white-color;
       text-transform: uppercase;
     }
     .fas {
@@ -278,44 +249,17 @@ footer {
   }
 }
 
+
+
 ul.social-buttons {
-  margin-bottom: 0;
-}
-
-ul.social-buttons li a:active,
-ul.social-buttons li a:focus,
-ul.social-buttons li a:hover {
-  background-color: $primary-orange;
-}
-
-ul.social-buttons li a {
-  font-size: 20px;
-  line-height: 40px;
-  display: block;
-  width: 40px;
-  height: 40px;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-  color: #fff;
-  border-radius: 100%;
-  outline: 0;
-  background-color: $footer-background-grey;
-}
-
-footer .quick-links {
-  font-size: 90%;
-  line-height: 40px;
-  margin-bottom: 0;
-  text-transform: none;
-  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  @include social-buttons;
 }
 
 .copyright {
-  color: white;
+  color: $white-color;
 }
 
 .fa-ellipsis-h {
-  color: white;
+  color: $white-color;
   padding: 2rem 0;
 }

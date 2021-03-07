@@ -78,6 +78,24 @@ export class AlertsService {
     })
   }
 
+  existeWish(): any {
+    Swal.fire({
+      title: 'ERROR!',
+      text: 'Ese deseo ya existe, pruebe con otro titulo!',
+      icon: 'error',
+      confirmButtonText: 'OK'
+    })
+  }
+
+  tienesWish(): any {
+    Swal.fire({
+      title: 'ERROR!',
+      text: 'Ese deseo ya lo tienes!',
+      icon: 'error',
+      confirmButtonText: 'OK'
+    })
+  }
+
   registroCorrecto() {
     Swal.fire({
       title: 'INFO!',

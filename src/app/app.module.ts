@@ -16,6 +16,8 @@ import { MylistComponent } from './components/mylist/mylist.component';
 import { NotLoggedComponent } from './components/not-logged/not-logged.component';
 import { CompletedComponent } from './components/completed/completed.component';
 import { ExploreComponent } from './components/explore/explore.component';
+import { RoutesComponent } from './components/routes/routes.component';
+import { BestsComponent } from './components/bests/bests.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ExploreComponent } from './components/explore/explore.component';
     MylistComponent,
     NotLoggedComponent,
     CompletedComponent,
-    ExploreComponent
+    ExploreComponent,
+    RoutesComponent,
+    BestsComponent
   ],
   imports: [
     HttpClientModule,

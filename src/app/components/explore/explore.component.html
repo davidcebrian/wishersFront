@@ -1,7 +1,7 @@
 <h2 class="m-4">EXPLORE USERS</h2>
 <hr>
 <div class="container d-flex flex-wrap" >
-    <div *ngFor="let customer of this.customers" class='card m-4 col-md-3 col-4 shadow-lg' data-toggle="modal" data-target="#miModal">
+    <div *ngFor="let customer of this.customers" class='card m-4 col-md-3 col-4 shadow-lg' data-toggle="modal" data-target="#miModal" (click)="this.wishesFromCustomer(customer.username)">
             <img src="../../../assets/images/img_avatar.png" class="card-img-top" alt="imagen-perfil">
             <div class="card-body ">
                 <h5 class="card-title">{{customer.username}}</h5>
@@ -16,19 +16,24 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">Wishes</h5>
+          <h5 class="modal-title" id="exampleModalCenterTitle">His wishes</h5>
           <button type="btn btn-dark" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-                <div *ngFor="let wish of this.wishes">
-                    <h5 class="card-title">{{wish.title}}</h5>
-                    <p class="card-text">{{wish.description}}</p>
-                    <p class="card-text">Points --> {{wish.value}}</p>
-                    <a class="btn btn-success mx-2" (click)="this.addWish(wish)">Add to My List</a>
-                </div>
+
+        <div class="container d-flex flex-wrap" >
+          <div *ngFor="let wish of this.wishes" class='card m-3 col-md-5 col-6 shadow-lg h-25'>
+                  <img src="../../../assets/images/imgncardwish.jpeg" class="card-img-top" alt="imagen-deseo-descrito">
+                  <div class="card-body ">
+                      <h5 class="card-title">{{wish.title}}</h5>
+                      <p class="card-text">{{wish.description}}</p>
+                      <p class="card-text">Points --> {{wish.value}}</p>
+                      <a class="btn btn-success" (click)="this.addWish(wish)">To myList</a>
+                  </div>
+          </div>
         </div>
+
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>

@@ -23,7 +23,7 @@ export class LogGuard implements CanActivate {
             });
             
             // redireciono a home
-            this.router.navigate(['home']);
+            this.router.navigate(['']);
             
             return false;
         }

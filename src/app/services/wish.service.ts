@@ -40,6 +40,10 @@ export class WishService {
     return this.http.post(this.customerEndPoint + '/' + username + '/wish', wish);
   }
 
+  addWishToCustomer(username: string, wish: Wish): any {
+    return this.http.post(this.customerEndPoint + '/' + username + '/wish/customer', wish);
+  }
+
 
   completeWish(username: string, wish: Wish): any {
     return this.http.put(this.customerEndPoint + '/' + username + '/wish', wish);

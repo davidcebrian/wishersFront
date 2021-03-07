@@ -42,7 +42,11 @@ export class MylistComponent implements OnInit {
       this.alerts.added();
       this.wishService.getWishes(localStorage.getItem("username")).subscribe();
     }, error => {
-      this.alerts.errorInesperado();
+      if(error.status == 302){
+        this.alerts.existeWish();
+      }else{
+        this.alerts.errorInesperado();
+      }
     });
     
   }

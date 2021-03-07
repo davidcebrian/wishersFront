@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
     this.customer = null;
     this.userService.logout();
     localStorage.clear();
-    this.router.navigate(['home']);
+    this.router.navigate(['']);
   }
 
 }

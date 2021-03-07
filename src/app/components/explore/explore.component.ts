@@ -35,10 +35,14 @@ export class ExploreComponent implements OnInit {
 
   addWish(wish: Wish){ 
     wish.completed = false;
-    this.wishService.addWish(localStorage.getItem("username"),wish).subscribe( r => {
+    this.wishService.addWishToCustomer(localStorage.getItem("username"),wish).subscribe( r => {
       this.alerts.added();
     }, error => {
-      this.alerts.errorInesperado();
+      if(error.status == 400){
+        this.alerts.tienesWish();
+      }else{
+        this.alerts.errorInesperado();
+      }
     });
     
   }
