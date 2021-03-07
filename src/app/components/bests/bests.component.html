@@ -1,15 +1,23 @@
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th scope="col">Username</th>
-        <th scope="col">Points</th>
-    </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let customer of this.customers">
-        <td>{{customer.username}}</td>
-        <td>{{customer.points}}</td>
-    </tr>
-    
-    </tbody>
-</table>
+<br><br>
+<h1 class="m-4">BEST WISHERS</h1>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customer of this.customers | paginate: { itemsPerPage: 10, currentPage: pa }">
+                <td>{{customer.username}}</td>
+                <td>{{customer.points}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="pa = $event"
+                        responsive="true"
+                        previousLabel="Previous"
+                        nextLabel="Next">
+    </pagination-controls>
+</div>

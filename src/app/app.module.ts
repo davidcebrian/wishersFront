@@ -19,6 +19,8 @@ import { ExploreComponent } from './components/explore/explore.component';
 import { RoutesComponent } from './components/routes/routes.component';
 import { BestsComponent } from './components/bests/bests.component';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,8 @@ import { BestsComponent } from './components/bests/bests.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}],
   bootstrap: [AppComponent]

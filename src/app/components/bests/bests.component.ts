@@ -13,6 +13,7 @@ import { WishService } from 'src/app/services/wish.service';
 export class BestsComponent implements OnInit {
 
   customers: Customer[];
+  public pa: number;
 
   constructor( private userService: UserServiceService, private router: Router, private alerts: AlertsService, ) { }
 

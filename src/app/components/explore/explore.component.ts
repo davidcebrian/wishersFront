@@ -14,7 +14,7 @@ export class ExploreComponent implements OnInit {
 
   customers: Customer[];
   wishes: Wish[];
-
+  public pages: number;
   constructor( private userService: UserServiceService, private router: Router, private alerts: AlertsService, private wishService: WishService) { }
 
   ngOnInit(): void {
