@@ -2,6 +2,7 @@
 <h2 class="m-4"> MY LIST</h2>
 <hr>
 <div class="container d-flex flex-wrap" >
+  <!-- muestra todos los deseos de un usuario si el valor de la variable completado es false, si no no lo muestra-->
     <div *ngFor="let wish of this.wishes" [class]="wish.completed ? 'card m-4 col-md-3 col-4 shadow-lg d-none':'card m-4 col-md-3 col-4 shadow-lg'">
             <img src="../../../assets/images/imgncardwish.jpeg" class="card-img-top" alt="imagen-deseo-descrito">
             <div class="card-body ">
@@ -34,7 +35,7 @@
 
 
   
-  <!-- Modal -->
+  <!-- Modal que muestra el formulario para añadir un deseo nuevo-->
   <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -45,7 +46,7 @@
           </button>
         </div>
         <div class="modal-body">
-            <!-- form para anadir wish -->
+            <!-- form para anadir wish, cambiando la clase con los stilos segun si son validos los campos o no-->
             <form [formGroup]="wishForm">
                 <div class="form-group my-2">
                     <input formControlName="title" name="title" type="text" [class]="wishForm.controls.title.invalid ? 'form-control is-invalid' : 'form-control is-valid'" placeholder="Título.." value="" id="title"/>

@@ -1,10 +1,14 @@
 <br><br>
+<!-- Contenedor para el login-->
 <div class="container login-container">
     <div class="row">
+        <!-- Formulario para el login -->
         <div class="col-md-6 login-form-1">
             <h3>Login</h3>
+            <!-- Realizado con template driven -->
+            <!-- Al enviarse se envia la peticion de login mediante la funcion de login -->
             <form (ngSubmit)="logIn(loginForm.value)" #loginForm="ngForm">
-                
+                <!-- La clase cambiar el estilo segun si los campos son válidos o no -->
                 <div class="form-group my-2">
                     <input type="text" [class]="loginForm.form.controls.username?.invalid ? 'form-control is-invalid' : 'form-control is-valid'" placeholder="Username.." name="username" ngModel required />
                     <p *ngIf="loginForm.form.controls.username?.invalid" class="text-danger small">Username needed</p>
@@ -14,13 +18,14 @@
                     <input type="password" [class]="loginForm.form.controls.password?.invalid ? 'form-control is-invalid' : 'form-control is-valid'" placeholder="Password.." name="password" ngModel required />
                     <p *ngIf="loginForm.form.controls.password?.invalid" class="text-danger small">password needed</p>
                 </div>
-
+                <!-- Boton para enviar el form, desactivado si el formulario no es valido-->
                 <div class="form-group my-2">
                     <input type="submit" class="btn btn-dark" value="Login" [disabled]="!loginForm.valid"/>
                 </div>
             </form>
         </div>
-
+        <!-- Lado de registro hecho con Formulario Reactivo, las clases cambian los estilos de los campos segun si 
+            el campo es válido o no lo es -->
         <div class="col-md-6 login-form-2">
             <h3>Register if you havent account yet!</h3>
             <form [formGroup]="registerForm">
@@ -49,6 +54,7 @@
                     <p *ngIf="registerForm.controls.password.invalid" class="text-warning small">Password with 3 characters min needed</p>
                 </div>
                 <div class="form-group my-2">
+                    <!-- Boton para enviar la peticion del registro, desactivado si el formulario no es valido-->
                     <input (click)="register()" class="btn btn-warning" value="Register" [disabled]="!registerForm.valid"/>
                 </div>
             </form>

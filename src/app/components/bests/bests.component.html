@@ -1,4 +1,5 @@
 <br><br>
+<!-- Tabla para el ranking de los customers con mas puntos -->
 <h1 class="m-4">BEST WISHERS</h1>
 <div class="container">
     <table class="table table-striped">
@@ -9,12 +10,14 @@
             </tr>
         </thead>
         <tbody>
+            <!-- Creamos filas por cada customer y le añadimos el pipe para la paginacion-->
             <tr *ngFor="let customer of this.customers | paginate: { itemsPerPage: 10, currentPage: pa }">
                 <td>{{customer.username}}</td>
                 <td>{{customer.points}}</td>
             </tr>
         </tbody>
     </table>
+    <!-- Controlador de la paginación -->
     <pagination-controls (pageChange)="pa = $event"
                         responsive="true"
                         previousLabel="Previous"

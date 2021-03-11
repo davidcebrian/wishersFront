@@ -10,6 +10,8 @@ import { NotLoggedComponent } from '../not-logged/not-logged.component';
 import { LogGuard } from '../../guards/logGuard';
 import { BestsComponent } from '../bests/bests.component';
 
+//Modulo con todas las rutas de los componentes que sera cargado mediante lazy loading en el modulo principal APp module
+//Tiene los canActivate con el guard que comprueba si estamos logeados o no
 const childRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},

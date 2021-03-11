@@ -4,12 +4,12 @@ import Swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root'
 })
+
+//Servicio que lanza las alertas personalizadas tanto de errores como de informaciñon que se necesite enviar al usuario
 export class AlertsService {
 
   constructor() { }
-
-
-
+  
   loading(){
     Swal.fire({
       title: 'Espere',
