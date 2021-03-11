@@ -70,33 +70,6 @@
 // scss-docs-end btn-variant-loops
 
 
-//
-// Link buttons
-//
-
-// Make a button look and behave like a link
-.btn-link {
-  font-weight: $font-weight-normal;
-  color: $btn-link-color;
-  text-decoration: $link-decoration;
-
-  &:hover {
-    color: $btn-link-hover-color;
-    text-decoration: $link-hover-decoration;
-  }
-
-  &:focus {
-    text-decoration: $link-hover-decoration;
-  }
-
-  &:disabled,
-  &.disabled {
-    color: $btn-link-disabled-color;
-  }
-
-  // No need for an active state here
-}
-
 
 //
 // Button Sizes
